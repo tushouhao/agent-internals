@@ -26,3 +26,15 @@ def tree_of_thoughts(problem, max_depth=3, branches_per_level=3):
         best_path.append({"state": scored[0][0], "value": scored[0][1]})
 
     return best_path
+
+if __name__ == "__main__":
+    def llm_generate(state, n):
+        return [f"{state}->分支{i}" for i in range(n)]
+    def llm_evaluate(prompt):
+        return "0.7"
+    globals()['llm_generate_branches'] = llm_generate
+    globals()['llm_evaluate'] = llm_evaluate
+    path = tree_of_thoughts("求解问题", max_depth=3, branches_per_level=2)
+    print(f"ToT 路径 ({len(path)} 步):")
+    for i, step in enumerate(path):
+        print(f"  {i}: {step['state'][:40]} (v={step['value']:.2f})")

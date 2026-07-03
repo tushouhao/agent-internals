@@ -34,3 +34,9 @@ tool_schema_bad = {
         "required": ["keyword"]
     }
 }
+
+if __name__ == "__main__":
+    print("=== 好的 schema ===")
+    for k, v in tool_schema_good.items():
+        print(f"  {k}: {v}")
+    print(f"\n参数数: {len(tool_schema_good['parameters']['properties'])}")

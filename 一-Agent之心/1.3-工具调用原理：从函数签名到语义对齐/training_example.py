@@ -19,3 +19,14 @@ training_example = {
          "tool_call_id": "call_001"}
     ]
 }
+
+if __name__ == "__main__":
+    print("=== Function Calling 训练样本 ===")
+    for msg in training_example["messages"]:
+        role = msg["role"]
+        content = msg.get("content", "")
+        if msg.get("tool_calls"):
+            tc = msg["tool_calls"][0]
+            print(f"  [{role}] 调用工具: {tc['function']['name']}({tc['function']['arguments']})")
+        else:
+            print(f"  [{role}] {content or '(空)'}")

@@ -1,6 +1,8 @@
 # cycle_detector
 # 运行: python cycle_detector.py
 
+import time, hashlib
+
 class CycleDetector:
     """子目标环检测器"""
     def __init__(self, window_size=10):
@@ -40,3 +42,35 @@ class CycleDetector:
                 return {"type": "result_stuck", "subgoal": recent[-1]["name"]}
 
         return None
+
+if __name__ == "__main__":
+    cd = CycleDetector(window_size=10)
+
+    # 场景1: 自循环（同名连续3次）
+    print("--- 场景1: 自循环 ---")
+    cd1 = CycleDetector(window_size=10)
+    for _ in range(3):
+        r = cd1.record("retry_search", hashlib.md5(b"x").hexdigest())
+    print(f"  检测: {r}")
+
+    # 场景2: 死锁（A-B-A-B 周期）
+    print("--- 场景2: 死锁周期 ---")
+    cd2 = CycleDetector(window_size=10)
+    for s in ["A", "B", "A", "B"]:
+        cd2.record(s, hashlib.md5(s.encode()).hexdigest())
+    print(f"  检测: {cd2.detect()}")
+
+    # 场景3: 结果停滞
+    print("--- 场景3: 结果停滞 ---")
+    cd3 = CycleDetector(window_size=10)
+    h = hashlib.md5(b"same").hexdigest()
+    cd3.record("step1", h)
+    cd3.record("step2", h)
+    print(f"  检测: {cd3.detect()}")
+
+    # 场景4: 正常无环
+    print("--- 场景4: 正常 ---")
+    cd4 = CycleDetector(window_size=10)
+    for s in ["A", "B", "C"]:
+        cd4.record(s, hashlib.md5(s.encode()).hexdigest())
+    print(f"  检测: {cd4.detect()}")

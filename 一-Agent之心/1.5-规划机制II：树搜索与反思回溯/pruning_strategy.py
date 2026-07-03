@@ -28,3 +28,16 @@ class PruningStrategy:
             reasons.append("state_visited")
 
         return len(reasons) > 0, reasons
+
+if __name__ == "__main__":
+    pruner = PruningStrategy(confidence_threshold=0.3)
+    class E:
+        confidence = 0.2
+        consecutive_failures = 0
+        depth = 3
+        max_expected_depth = 10
+        state = "x"
+        visited_states = set()
+    e = E()
+    prune, reasons = pruner.should_prune(None, e)
+    print(f"剪枝: {prune}, 原因: {reasons}")

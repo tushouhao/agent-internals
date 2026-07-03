@@ -22,3 +22,11 @@ parameter_hallucination_examples = [
         "error": "类型校验失败"
     },
 ]
+
+if __name__ == "__main__":
+    print(f"参数幻觉示例 {len(parameter_hallucination_examples)} 例:")
+    for ex in parameter_hallucination_examples:
+        print(f"  [{ex['type']}] {ex['input']}")
+        print(f"    预期: {ex['expected']}")
+        print(f"    实际: {ex['actual']}")
+        print(f"    错误: {ex['error']}")

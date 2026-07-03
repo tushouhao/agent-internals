@@ -29,3 +29,10 @@ def dfs_search(node, depth, max_depth, get_children, is_goal):
         if result:
             return result
     return None
+
+if __name__ == "__main__":
+    tree = {"A": ["B", "C"], "B": ["D"], "C": ["E"], "D": [], "E": []}
+    children = lambda n: tree.get(n, [])
+    is_goal = lambda n: n == "E"
+    print(f"BFS: {bfs_search('A', 3, children, is_goal)}")
+    print(f"DFS: {dfs_search('A', 0, 3, children, is_goal)}")

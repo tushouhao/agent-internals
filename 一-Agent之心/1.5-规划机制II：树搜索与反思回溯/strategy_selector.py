@@ -25,3 +25,13 @@ class SearchStrategySelector:
         if bf <= dp:
             return "dfs"          # 深度大的空间
         return "bfs"              # 宽度大的空间
+
+if __name__ == "__main__":
+    sel = SearchStrategySelector()
+    tasks = [
+        {"branching_factor": 2, "depth": 5, "reward_density": 0.4, "time_budget_ms": 3000},
+        {"branching_factor": 5, "depth": 6, "reward_density": 0.08, "time_budget_ms": 15000},
+        {"branching_factor": 3, "depth": 10, "reward_density": 0.2, "time_budget_ms": 8000},
+    ]
+    for i, t in enumerate(tasks):
+        print(f"任务{i+1}: {sel.select(t)}")

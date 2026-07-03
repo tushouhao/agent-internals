@@ -27,3 +27,19 @@ def reflection_search(problem, llm, max_steps=10, max_reflections=3):
             chain.append({"role": "assistant", "content": response})
 
     return chain[-1]["content"]
+
+if __name__ == "__main__":
+    def mock_llm(chain):
+        last = chain[-1]["content"]
+        if "步骤" in last and len(chain) < 4:
+            return f"步骤{len(chain)}: 中间推理"
+        return "最终答案: 42"
+    def is_sat(r): return "最终" in r
+    def detect_err(c, r): return None
+    def locate_err(c, r): return len(c) - 1
+    # monkey-patch
+    globals()['is_satisfactory'] = is_sat
+    globals()['detect_error'] = detect_err
+    globals()['locate_error_step'] = locate_err
+    result = reflection_search("求解问题", mock_llm, max_steps=5, max_reflections=2)
+    print(f"反思搜索结果: {result}")

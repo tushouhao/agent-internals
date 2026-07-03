@@ -11,6 +11,10 @@ class DependencyGraph:
         self.nodes[name] = {"action": action, "status": "pending"}
         self.edges[name] = depends_on or []
 
+    def mark_done(self, name):
+        if name in self.nodes:
+            self.nodes[name]["status"] = "done"
+
     def get_ready(self):
         """返回所有前置依赖已完成的子目标"""
         ready = []
@@ -21,7 +25,7 @@ class DependencyGraph:
         return ready
 
     def detect_cycle(self):
-        """检测环：使用拓扑排序"""
+        """检测环：使用 DFS"""
         visited = set()
         path = set()
 
@@ -32,7 +36,6 @@ class DependencyGraph:
                 return False
             visited.add(node)
             path.add(node)
-            # 遍历所有依赖当前节点的子目标
             for n, deps in self.edges.items():
                 if node in deps:
                     if dfs(n):
@@ -44,3 +47,21 @@ class DependencyGraph:
             if dfs(node):
                 return True, node
         return False, None
+
+if __name__ == "__main__":
+    print("--- 场景1: 正常 DAG ---")
+    dg = DependencyGraph()
+    dg.add_subgoal("g1", "query_db")
+    dg.add_subgoal("g2", "analyze", depends_on=["g1"])
+    dg.add_subgoal("g3", "report", depends_on=["g1", "g2"])
+    print(f"  初始可执行: {dg.get_ready()}")
+    dg.mark_done("g1")
+    print(f"  g1完成后可执行: {dg.get_ready()}")
+    print(f"  循环检测: {dg.detect_cycle()}")
+
+    print("\n--- 场景2: 含环 ---")
+    dg2 = DependencyGraph()
+    dg2.add_subgoal("a", "act_a", depends_on=["c"])
+    dg2.add_subgoal("b", "act_b", depends_on=["a"])
+    dg2.add_subgoal("c", "act_c", depends_on=["b"])
+    print(f"  循环检测: {dg2.detect_cycle()}")

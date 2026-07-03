@@ -43,3 +43,12 @@ def mcts_search(root, get_children, simulate, max_iterations=100):
             node.visits += 1
             node.wins += reward
             node = node.parent
+
+if __name__ == "__main__":
+    random.seed(42)
+    root = MCTSNode("root")
+    children_fn = lambda s: [f"{s}_{i}" for i in range(2)]
+    simulate_fn = lambda s: random.random()
+    mcts_search(root, children_fn, simulate_fn, max_iterations=20)
+    print(f"访问: {root.visits}, 胜: {root.wins}")
+    print(f"子节点: {len(root.children)}")

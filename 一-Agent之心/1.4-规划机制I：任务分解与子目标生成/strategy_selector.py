@@ -19,3 +19,9 @@ class PlanningStrategySelector:
         if parallelizable:
             return "hierarchical"
         return "react"
+
+if __name__ == "__main__":
+    sel = PlanningStrategySelector()
+    for task in [{"complexity": 2}, {"complexity": 8, "uncertain": True},
+                 {"complexity": 5, "template": "rag"}]:
+        print(f"任务 {task} -> {sel.select(task)}")
