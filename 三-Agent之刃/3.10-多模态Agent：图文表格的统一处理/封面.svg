@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1f3d"/>
+      <stop offset="1" stop-color="#1e3a5f"/>
+    </linearGradient>
+    <linearGradient id="fuse" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b6a1a" stop-opacity="0.8"/>
+      <stop offset="0.5" stop-color="#1e6a3a" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#1e3a5f" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+
+  <!-- 三模态汇聚方块 -->
+  <g transform="translate(80,120)">
+    <rect x="0" y="0" width="180" height="90" rx="8" fill="#1e6a3a" stroke="#fff" stroke-width="1.5"/>
+    <text x="90" y="35" text-anchor="middle" fill="#fff" font-size="20" font-family="serif">图像塔 ViT</text>
+    <text x="90" y="62" text-anchor="middle" fill="#fff" font-size="14" font-family="sans">召回 88%</text>
+  </g>
+  <g transform="translate(80,230)">
+    <rect x="0" y="0" width="180" height="90" rx="8" fill="#8b6a1a" stroke="#fff" stroke-width="1.5"/>
+    <text x="90" y="35" text-anchor="middle" fill="#fff" font-size="20" font-family="serif">文本塔 BERT</text>
+    <text x="90" y="62" text-anchor="middle" fill="#fff" font-size="14" font-family="sans">召回 88%</text>
+  </g>
+  <g transform="translate(80,340)">
+    <rect x="0" y="0" width="180" height="90" rx="8" fill="#1e3a5f" stroke="#fff" stroke-width="1.5"/>
+    <text x="90" y="35" text-anchor="middle" fill="#fff" font-size="20" font-family="serif">表格塔 TabBERT</text>
+    <text x="90" y="62" text-anchor="middle" fill="#fff" font-size="14" font-family="sans">召回 88%</text>
+  </g>
+
+  <!-- 门控汇聚箭头 -->
+  <g stroke="#fff" stroke-width="2" fill="none">
+    <path d="M260,165 C360,165 360,270 460,270"/>
+    <path d="M260,275 C360,275 360,270 460,270"/>
+    <path d="M260,385 C360,385 360,270 460,270"/>
+  </g>
+  <text x="360" y="255" text-anchor="middle" fill="#fff" font-size="14" font-family="sans">三塔门控权重</text>
+
+  <!-- 融合圆 -->
+  <circle cx="540" cy="270" r="80" fill="url(#fuse)" stroke="#fff" stroke-width="2"/>
+  <text x="540" y="265" text-anchor="middle" fill="#fff" font-size="18" font-family="serif">联合嵌入</text>
+  <text x="540" y="290" text-anchor="middle" fill="#fff" font-size="14" font-family="sans">齐整召回 79%</text>
+
+  <!-- 缺模态退化箭头 -->
+  <g transform="translate(660,210)">
+    <rect x="0" y="0" width="180" height="60" rx="6" fill="#8b1a1a" stroke="#fff" stroke-width="1" opacity="0.85"/>
+    <text x="90" y="25" text-anchor="middle" fill="#fff" font-size="14" font-family="sans">naive 缺即崩</text>
+    <text x="90" y="45" text-anchor="middle" fill="#fff" font-size="14" font-family="sans">退化率 0.00</text>
+  </g>
+  <g transform="translate(660,300)">
+    <rect x="0" y="0" width="180" height="60" rx="6" fill="#1e6a3a" stroke="#fff" stroke-width="1" opacity="0.85"/>
+    <text x="90" y="25" text-anchor="middle" fill="#fff" font-size="14" font-family="sans">门控降权兜底</text>
+    <text x="90" y="45" text-anchor="middle" fill="#fff" font-size="14" font-family="sans">退化率 0.91</text>
+  </g>
+
+  <!-- 主标题 -->
+  <text x="480" y="60" text-anchor="middle" fill="#fff" font-size="32" font-family="serif">多模态 Agent</text>
+  <text x="480" y="88" text-anchor="middle" fill="#d4a017" font-size="20" font-family="sans">图文表格的统一处理</text>
+
+  <!-- 右下编号 -->
+  <text x="910" y="515" text-anchor="end" fill="#d4a017" font-size="36" font-family="serif" opacity="0.5">3.10</text>
+
+  <!-- 底部署名 -->
+  <text x="480" y="515" text-anchor="middle" fill="#fff" font-size="14" font-family="sans" opacity="0.7">Token 炼金师 著</text>
+</svg>

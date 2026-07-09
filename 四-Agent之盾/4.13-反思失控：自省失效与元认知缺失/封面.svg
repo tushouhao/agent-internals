@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1f3d"/>
+      <stop offset="1" stop-color="#1e3a5f"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+
+  <g transform="translate(60,130)">
+    <rect x="0" y="0" width="160" height="80" rx="8" fill="#1e3a5f" stroke="#fff" stroke-width="1.5"/>
+    <text x="80" y="35" text-anchor="middle" fill="#fff" font-size="16" font-family="serif">自省失效阶</text>
+    <text x="80" y="58" text-anchor="middle" fill="#fff" font-size="12" font-family="sans">反思 0% 失省 100%</text>
+  </g>
+  <g transform="translate(60,240)">
+    <rect x="20" y="10" width="120" height="30" rx="4" fill="#8b1a1a" stroke="#fff" stroke-width="1"/>
+    <text x="80" y="30" text-anchor="middle" fill="#fff" font-size="11" font-family="sans">introspect=None vs 预期偏离</text>
+  </g>
+
+  <g transform="translate(280,130)">
+    <rect x="0" y="0" width="160" height="80" rx="8" fill="#2d4a7a" stroke="#fff" stroke-width="1.5"/>
+    <text x="80" y="35" text-anchor="middle" fill="#fff" font-size="16" font-family="serif">元认知缺失阶</text>
+    <text x="80" y="58" text-anchor="middle" fill="#fff" font-size="12" font-family="sans">反思 64% 残留 3%</text>
+  </g>
+  <g transform="translate(280,240)">
+    <text x="20" y="25" fill="#fff" font-size="11" font-family="sans">轮1:识ok</text>
+    <text x="80" y="25" fill="#8b6a1a" font-size="11" font-family="sans">轮5:识None</text>
+    <text x="150" y="25" fill="#8b1a1a" font-size="11" font-family="sans">偏离基线</text>
+    <text x="80" y="50" text-anchor="middle" fill="#1e6a3a" font-size="11" font-family="sans">漏识检测</text>
+  </g>
+
+  <g transform="translate(500,130)">
+    <rect x="0" y="0" width="160" height="80" rx="8" fill="#0a1f3d" stroke="#d4a017" stroke-width="1.5"/>
+    <text x="80" y="35" text-anchor="middle" fill="#d4a017" font-size="16" font-family="serif">反思失配阶</text>
+    <text x="80" y="58" text-anchor="middle" fill="#fff" font-size="12" font-family="sans">适配 0% 失配 100%</text>
+  </g>
+  <g transform="translate(500,240)">
+    <rect x="0" y="10" width="60" height="25" rx="4" fill="#2d4a7a" stroke="#fff" stroke-width="1"/>
+    <text x="30" y="27" text-anchor="middle" fill="#fff" font-size="10" font-family="sans">实:1</text>
+    <rect x="70" y="5" width="90" height="35" rx="4" fill="#8b1a1a" stroke="#d4a017" stroke-width="1"/>
+    <text x="115" y="27" text-anchor="middle" fill="#fff" font-size="10" font-family="sans">要:6失配</text>
+  </g>
+
+  <g stroke="#fff" stroke-width="2" fill="none">
+    <path d="M220,170 L280,170"/>
+    <path d="M440,170 L500,170"/>
+  </g>
+
+  <g transform="translate(720,150)">
+    <text x="0" y="0" fill="#fff" font-size="13" font-family="sans">反思残留率</text>
+    <rect x="0" y="10" width="115" height="20" fill="#8b1a1a"/>
+    <text x="125" y="25" fill="#fff" font-size="12" font-family="sans">自省失效 100%</text>
+    <rect x="0" y="40" width="3" height="20" fill="#8b6a1a"/>
+    <text x="15" y="55" fill="#fff" font-size="12" font-family="sans">漏识检测 3%</text>
+    <rect x="0" y="70" width="115" height="20" fill="#8b1a1a"/>
+    <text x="125" y="85" fill="#fff" font-size="12" font-family="sans">反思失配 100%</text>
+  </g>
+
+  <text x="480" y="50" text-anchor="middle" fill="#fff" font-size="28" font-family="serif">反思失控：自省失效与元认知缺失</text>
+  <text x="480" y="78" text-anchor="middle" fill="#d4a017" font-size="16" font-family="sans">卷四 Agent 之盾</text>
+
+  <text x="910" y="515" text-anchor="end" fill="#d4a017" font-size="36" font-family="serif" opacity="0.5">4.13</text>
+  <text x="480" y="515" text-anchor="middle" fill="#fff" font-size="14" font-family="sans" opacity="0.7">Token 嘉金师 著</text>
+</svg>
